@@ -1,3 +1,7 @@
+$(window).on("load", function() {
+    $(".over").fadeOut(700)
+})
+
 $(function(){
 
     // Search
@@ -14,9 +18,27 @@ $(function(){
     $(".main-search .content").on("click", function(e) {
         e.stopPropagation();
     })
+    // Search
+
+    // Nav
+
+    // Open
+    $(".bars").on("click", function() {
+        $(".navbar-side").addClass("open");
+    })
+
+    // Close
+    $(".navbar-side, .navbar-side .fas.fa-times").on("click", function() {
+        $(".navbar-side").removeClass("open");
+    })
+
+    $(".navbar-side ul").on("click", function(e) {
+        e.stopPropagation()
+    })
+
+    // Nav
 
     var menu = [];
-
     $(".header .swiper-slide").each(function() {
         menu.push($(this).data("name"))
     })
@@ -57,12 +79,12 @@ $(function(){
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 4,
-              spaceBetween: 40,
+              slidesPerView: 2,
+              spaceBetween: 34,
             },
             1024: {
-              slidesPerView: 5,
-              spaceBetween: 50,
+              slidesPerView: 2,
+              spaceBetween: 34,
             },
           }
     });
@@ -84,4 +106,30 @@ $(function(){
             },
         }
     });
+
+    if($(window).width() <= 767){
+        $(".app .show .details").addClass("swiper-container");
+        $(".app .show .details .detail").wrapAll("<div class='swiper-wrapper'></div>").addClass("swiper-slide");
+
+
+        var appswiper = new Swiper(".app .swiper-container", {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            loop: true,
+            speed: 500,
+            autoplay: {
+            delay: 5000,
+            },
+            breakpoints: {
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 34,
+                }
+              }
+        });
+    }
 });
