@@ -498,10 +498,7 @@ body {
         -webkit-transform: unset;
                 transform: unset;
         height: 33px;
-        margin-top: 60px; } }
-    @media (max-width: 767px) {
-      .header .swiper-container .swiper-pagination {
-        margin-top: 30px; } }
+        margin-top: 80px; } }
     .header .swiper-container .swiper-pagination > * {
       -webkit-transform: rotate(-90deg);
               transform: rotate(-90deg); }
