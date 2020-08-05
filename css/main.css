@@ -1160,7 +1160,7 @@ body {
       text-align: start;
       border: none;
       border-radius: 0; }
-      @media (max-width: 375px) {
+      @media (max-width: 480px) {
         .faq .accordion .card button {
           font-size: 18.8px; } }
       .faq .accordion .card button:focus {
