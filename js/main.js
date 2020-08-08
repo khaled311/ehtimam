@@ -4,6 +4,15 @@ $(window).on("load", function() {
 
 $(function(){
 
+    // Scrolls
+    if($(window).width() >= 992){
+        $(".bars").on("click", function() {
+            $("html, body").animate({
+                scrollTop: $(".navBar").offset().top
+            }, 500)
+        })
+    }
+
     // Search
     // Open
     $(".header .search").on("click", function() {
@@ -20,29 +29,31 @@ $(function(){
     })
     // Search
 
-    // Nav
-
-    // Open
-    $(".bars").on("click", function() {
-        $(".navbar-side").addClass("open");
-    })
-
-    // Close
-    $(".navbar-side, .navbar-side .fas.fa-times").on("click", function() {
-        $(".navbar-side").removeClass("open");
-    })
-
-    $(".navbar-side ul").on("click", function(e) {
-        e.stopPropagation()
-    })
-
-    // Nav
+    if($(window).width() <= 991){
+        // Nav
+    
+        // Open
+        $(".bars").on("click", function() {
+            $(".navbar-side").addClass("open");
+        })
+    
+        // Close
+        $(".navbar-side, .navbar-side .fas.fa-times").on("click", function() {
+            $(".navbar-side").removeClass("open");
+        })
+    
+        $(".navbar-side ul").on("click", function(e) {
+            e.stopPropagation()
+        })
+    
+        // Nav
+    }
 
     var menu = [];
     $(".header .swiper-slide").each(function() {
         menu.push($(this).data("name"))
     })
-    console.log(menu);
+
     ///////// **main Slider** /////////
     var mainswiper = new Swiper(".header .swiper-container", {
         spaceBetween: 10,
@@ -52,7 +63,7 @@ $(function(){
         speed: 500,
 
         autoplay: {
-        delay: 5000,
+        delay: 3000,
         },
 
         pagination: {
@@ -71,7 +82,7 @@ $(function(){
         loop: true,
         speed: 500,
         autoplay: {
-        delay: 5000,
+        delay: 3000,
         },
         breakpoints: {
             0: {
@@ -118,7 +129,7 @@ $(function(){
             loop: true,
             speed: 500,
             autoplay: {
-            delay: 5000,
+            delay: 3000,
             },
             breakpoints: {
                 0: {
@@ -132,4 +143,28 @@ $(function(){
               }
         });
     }
+
+    var appswiper = new Swiper(".app .app1", {
+        spaceBetween: 10,
+
+        loop: true,
+
+        speed: 500,
+
+        autoplay: {
+            delay: 3000,
+        }
+    });
+
+    var appswiper = new Swiper(".app .app2", {
+        spaceBetween: 10,
+
+        loop: true,
+
+        speed: 500,
+
+        autoplay: {
+            delay: 3000,
+        }
+    });
 });
